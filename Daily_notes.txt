@@ -1,0 +1,36 @@
+OPERATOR OVERLOADING	
+--------------------
+--------------------
+using System;
+
+public class HelloWorld
+{
+    
+    public static void Main(string[] args)
+    {
+        //Console.WriteLine ("Hello Mono World");
+        Number n= new Number();
+        n.setValue(3.4);
+        n.getValue();
+    }
+    
+    class Number{
+        
+    double value;
+    
+    public void setValue(double v){
+        value=v;
+    }
+    public void getValue(){
+       MessageBox.Show("value is: "+value);// NOT WORKING 
+       //Console.WriteLine("value is: "+value);
+    }
+    public static Number operator *(Number n1, Number n2){
+        Number result= new Number();
+        result.value= (n1.value)*(n2.value);
+        return result;
+    }
+    }
+}
+--------------------------------------------------------------------
+--------------------------------------------------------------------

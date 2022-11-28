@@ -1,0 +1,57 @@
+using System;
+
+namespace LambdaExpression
+{
+    
+
+    // delegate ...  function pointer
+    public delegate void cal(int a);
+    public delegate int arithmatic(int a, int b);
+
+    internal class Program
+    {
+
+        public void square(int a)
+        {
+            int sq = a * a;
+            Console.WriteLine("Square = " + sq);
+        }
+
+        public void cube(int a)
+        {
+            int sq = a * a *a;
+            Console.WriteLine("Cube = " + sq);
+        }
+        public static int add(int p , int q)
+        {
+           return p + q;
+        }
+
+        public static int sub(int p, int q)
+        {
+            return p - q;
+        }
+        
+
+
+        // delegates.... function pointer ...
+        // Anonymous function....  without name.... 2.0 
+        static void Main(string[] args)
+        {
+
+            Program p = new Program();
+            cal obj = new cal(p.cube);
+
+            arithmatic ar = new arithmatic(Program.add);
+
+            obj.Invoke(5);
+             
+
+            Console.WriteLine(ar.Invoke(40, 50));
+
+
+            ar = sub;
+            Console.WriteLine(ar.Invoke(60, 30)); 
+        }
+    }
+}
